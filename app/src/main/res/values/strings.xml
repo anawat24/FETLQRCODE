@@ -13,4 +13,5 @@
     <string name="massage_UserFalse">User Not im my data base</string>
     <string name="title_PasswordFalse">Password False</string>
     <string name="massage_PasswordFalse">Please Try Again Password</string>
+    <string name="welcome">ยินดีต้อนรับ นวลน้อง </string>
 </resources>
