@@ -2,10 +2,12 @@ package fetl.sirinai.anawats.fetlqrcode;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -73,11 +75,36 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             } else {
                 //(NO Space)
-
+                uploadValueToServer();
 
             }
 
 
+        }
+
+
+    }
+
+    private void uploadValueToServer() {
+
+        try {
+
+            PostData postData = new PostData(this);
+            postData.execute(nameString, userString, passwordString);
+            String strResult = postData.get();
+            Log.d("17MayV1", "Result ===>" + strResult);
+
+
+            if (Boolean.parseBoolean(strResult)) {
+                finish();
+
+            } else {
+                Toast.makeText(RegisterActivity.this, "Cannot Upload Value", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e)
+        {
+            Log.d("17MayV1", "e Upload ====>" + e.toString());
         }
 
     }
