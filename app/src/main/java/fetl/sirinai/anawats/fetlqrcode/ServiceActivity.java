@@ -65,16 +65,16 @@ public class ServiceActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 Intent intent = new Intent(ServiceActivity.this, DetailActivity.class);
-                Toast.makeText(this, jsonObject.getString("Produce"), Toast.LENGTH_SHORT).show();
-                //intent.putExtra("Name", jsonObject.getString("Produce"));
-                //intent.putExtra("Detail",  jsonObject.getString("Detail"));
-               // intent.putExtra("Icon",  jsonObject.getString("Image"));
-               // startActivity(intent);
+                intent.putExtra("Name", jsonObject.getString("Produce"));
+                intent.putExtra("Detail",  jsonObject.getString("Detail"));
+                intent.putExtra("Icon",  jsonObject.getString("Image"));
+                startActivity(intent);
 
 
             } catch (Exception e) {
                 Log.d("18MayV2", "e onAc  ===>" + e.toString());
-                //Toast.makeText(this, myCodeString, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+
             }
 
 
